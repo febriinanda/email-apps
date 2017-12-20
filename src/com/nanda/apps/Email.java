@@ -7,4 +7,10 @@ public class Email {
     private String department;
     private int mailboxCapacity;
     private String alternativeEmail;
+
+    public Email(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        System.out.println("Email created: "+ this.firstName +" "+this.lastName);
+    }
 }
