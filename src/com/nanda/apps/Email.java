@@ -7,9 +7,11 @@ public class Email {
     private String lastName;
     private String password;
     private String department;
+    private String email;
     private int mailboxCapacity;
     private int passwordLength = 6;
     private String alternativeEmail;
+    private String companySuffix = "almighty.com";
 
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
@@ -21,6 +23,9 @@ public class Email {
 
         this.password = randomPassword(this.passwordLength);
         System.out.println("Your password: "+this.password);
+
+        this.email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department +"."+ companySuffix;
+        System.out.println("Your email is "+email);
     }
 
     private String setDepartment(){
@@ -31,9 +36,9 @@ public class Email {
         if (depChoice == 1){
             return "sales";
         }else if (depChoice == 2){
-            return "development";
+            return "dev";
         }else if (depChoice == 3){
-            return "accounting";
+            return "acct";
         }else{
             return "";
         }
