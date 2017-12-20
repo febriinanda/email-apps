@@ -6,39 +6,34 @@ public class Email {
     private String firstName;
     private String lastName;
     private String password;
-    private String department;
     private String email;
     private int mailboxCapacity = 1000;
-    private int passwordLength = 6;
     private String alternativeEmail;
-    private String companySuffix = "almighty.com";
 
-    public void setMailboxCapacity(int mailboxCapacity) {
-        this.mailboxCapacity = mailboxCapacity;
-    }
 
-    public void setAlternativeEmail(String alternativeEmail) {
-        this.alternativeEmail = alternativeEmail;
-    }
 
-    public Email(String firstName, String lastName) {
+    Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        //System.out.println("Email created: "+ this.firstName +" "+this.lastName);
 
-        this.department = setDepartment();
-        //System.out.println("Department: " + this.department);
+        String department = setDepartment();
 
-        this.password = randomPassword(this.passwordLength);
+        int passwordLength = 6;
+        this.password = randomPassword(passwordLength);
         System.out.println("Your password: "+this.password);
 
+        String companySuffix = "almighty.com";
         this.email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department +"."+ companySuffix;
-        //System.out.println("Your email is "+email);
     }
 
     private String setDepartment(){
-        String string = "New Worker: " +firstName +
-                ". \nDepartment Codes\n1 for Sales\n2 for Development\n3 for Accounting\n0 for None\nEnter Department Codes:";
+        String string = "New Worker: " +firstName +". " +
+                "\nDepartment Codes" +
+                "\n1 for Sales" +
+                "\n2 for Development" +
+                "\n3 for Accounting" +
+                "\n0 for None" +
+                "\nEnter Department Codes:";
         System.out.println(string);
         Scanner scanner = new Scanner(System.in);
         int depChoice = scanner.nextInt();
@@ -85,5 +80,12 @@ public class Email {
         return "Display Name: "+firstName+" "+lastName +
                 "\nCompany Email: "+email+
                 "\nMailbox Cap: "+ mailboxCapacity+"Mb";
+    }
+    public void setMailboxCapacity(int mailboxCapacity) {
+        this.mailboxCapacity = mailboxCapacity;
+    }
+
+    public void setAlternativeEmail(String alternativeEmail) {
+        this.alternativeEmail = alternativeEmail;
     }
 }
