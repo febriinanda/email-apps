@@ -8,10 +8,18 @@ public class Email {
     private String password;
     private String department;
     private String email;
-    private int mailboxCapacity;
+    private int mailboxCapacity = 1000;
     private int passwordLength = 6;
     private String alternativeEmail;
     private String companySuffix = "almighty.com";
+
+    public void setMailboxCapacity(int mailboxCapacity) {
+        this.mailboxCapacity = mailboxCapacity;
+    }
+
+    public void setAlternativeEmail(String alternativeEmail) {
+        this.alternativeEmail = alternativeEmail;
+    }
 
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
@@ -53,5 +61,9 @@ public class Email {
         }
 
         return new String(password);
+    }
+
+    public void changePassword(String password){
+        this.password = password;
     }
 }
