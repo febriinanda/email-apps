@@ -24,20 +24,22 @@ public class Email {
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("Email created: "+ this.firstName +" "+this.lastName);
+        //System.out.println("Email created: "+ this.firstName +" "+this.lastName);
 
         this.department = setDepartment();
-        System.out.println("Department: " + this.department);
+        //System.out.println("Department: " + this.department);
 
         this.password = randomPassword(this.passwordLength);
         System.out.println("Your password: "+this.password);
 
         this.email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department +"."+ companySuffix;
-        System.out.println("Your email is "+email);
+        //System.out.println("Your email is "+email);
     }
 
     private String setDepartment(){
-        System.out.println("Department Codes\n1 for Sale\n2 for Development\n3 for Accounting\n0 for None\nEnter Department Codes:");
+        String string = "New Worker: " +firstName +
+                ". \nDepartment Codes\n1 for Sales\n2 for Development\n3 for Accounting\n0 for None\nEnter Department Codes:";
+        System.out.println(string);
         Scanner scanner = new Scanner(System.in);
         int depChoice = scanner.nextInt();
 
@@ -77,5 +79,11 @@ public class Email {
 
     public String getPassword() {
         return password;
+    }
+
+    public String showInfo(){
+        return "Display Name: "+firstName+" "+lastName +
+                "\nCompany Email: "+email+
+                "\nMailbox Cap: "+ mailboxCapacity+"Mb";
     }
 }
